@@ -35,6 +35,7 @@ public class TaskController {
     public List<ResponseTaskDto> getAllTasks() {
         return taskService.getAllTasks();
     }
+
     @GetMapping("/{id}")
     @LogReturning
     public ResponseTaskDto getTaskById(@PathVariable Long id) {

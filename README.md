@@ -1,6 +1,7 @@
 # Task tracker project as homework for T1 Java Academy
 
 ## Task 1:
+
 Consists of CRUD operations and LoggingAspect with Spring AOP:
 
 - Around advice for benchmarking TaskRepository methods
@@ -16,4 +17,5 @@ Consists of CRUD operations and LoggingAspect with Spring AOP:
 ```bash
 docker compose up -d
 ```
+
 The application available on the port 8081 and Postgres available on 5433 (for debugging)
