@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: t1-task-tracker
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    root: info
+    com.example.t1tasktracker: debug
