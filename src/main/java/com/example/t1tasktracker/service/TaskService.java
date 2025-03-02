@@ -2,12 +2,14 @@ package com.example.t1tasktracker.service;
 
 import com.example.t1tasktracker.aspect.annotation.LogBefore;
 import com.example.t1tasktracker.aspect.annotation.LogException;
+import com.example.t1tasktracker.dto.ResponseTaskDto;
+import com.example.t1tasktracker.dto.TaskNotificationDto;
+import com.example.t1tasktracker.dto.TaskRequestDto;
 import com.example.t1tasktracker.entity.Task;
+import com.example.t1tasktracker.entity.TaskStatus;
 import com.example.t1tasktracker.exception.TaskNotFoundException;
 import com.example.t1tasktracker.mapper.TaskMapper;
 import com.example.t1tasktracker.repository.TaskRepository;
-import dto.ResponseTaskDto;
-import dto.TaskRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ import java.util.List;
 public class TaskService {
     private final TaskMapper taskMapper;
     private final TaskRepository taskRepository;
+    private final MessageProducer messageProducer;
 
     public ResponseTaskDto addTask(TaskRequestDto taskDto) {
         Task persistedTask = taskRepository.save(taskMapper.createDtoToEntity(taskDto));
@@ -36,9 +39,16 @@ public class TaskService {
     public ResponseTaskDto updateTask(Long id, TaskRequestDto taskDto) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new TaskNotFoundException(String.format("Task with id %d not found", id)));
+        TaskStatus old_status = task.getStatus();
+
         task.setTitle(taskDto.title());
         task.setDescription(taskDto.description());
         task.setUserId(taskDto.userId());
+        task.setStatus(taskDto.status());
+
+        if (old_status != taskDto.status()) {
+            messageProducer.sendTaskStatusUpdate(new TaskNotificationDto(id, taskDto.status()));
+        }
         return taskMapper.entityToDto(taskRepository.save(task));
     }
 

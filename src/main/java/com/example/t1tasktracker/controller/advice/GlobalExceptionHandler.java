@@ -21,6 +21,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleFallbackException(RuntimeException ex) {
         log.error("Unhandled exception", ex);
         return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),

@@ -8,7 +8,41 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    test-connection: true
 logging:
   level:
     root: info
     com.example.t1tasktracker: debug
+
+app:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    consumer:
+      topic: ${KAFKA_CONSUMER_TOPIC}
+      group-id: ${KAFKA_CONSUMER_GROUP_ID}}
+      session-timeout: ${KAFKA_SESSION_TIMEOUT}
+      max-partition-fetch-bytes: ${KAFKA_MAX_PARTITION_FETCH_BYTES}
+      max-poll-records: ${KAFKA_MAX_POLL_RECORDS}
+      max-poll-interval: ${KAFKA_MAX_POLL_INTERVAL}
+      auto-offset-reset: ${KAFKA_AUTO_OFFSET_RESET}
+    producer:
+      topic: ${KAFKA_PRODUCER_TOPIC}
+      acknowledgement: ${KAFKA_PRODUCER_ACK}
+  notification:
+    mail:
+      fromAddress: ${NOTIFICATION_FROM_EMAIL}
+      toAddresses: ${NOTIFICATION_TO_EMAILS}
+      subject-template: "[Notification] Status of task with id %d was updated"
+      text-template: "Hello! Notify you that status of task with id %d has been updated to %s"
