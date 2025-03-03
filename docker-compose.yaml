@@ -54,11 +54,6 @@ services:
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     depends_on:
       - zoo1
-    healthcheck:
-      test: [ "CMD", "kafka-topics.sh", "--list", "--bootstrap-server", "localhost:9092" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   app:
     env_file:
@@ -69,8 +64,6 @@ services:
       - "8081:8080"
     depends_on:
       db:
-        condition: service_healthy
-      kafka1:
         condition: service_healthy
 
 volumes:

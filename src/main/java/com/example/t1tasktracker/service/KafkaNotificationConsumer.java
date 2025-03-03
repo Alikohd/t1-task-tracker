@@ -33,7 +33,7 @@ public class KafkaNotificationConsumer {
             }
         }
 
-        log.debug("Batch processed, commiting offset..");
         ack.acknowledge();
+        log.info("Batch processed, offset commited for topic {}, batchSize {}", topic, messageList.size());
     }
 }
