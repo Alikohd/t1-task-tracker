@@ -32,7 +32,7 @@ public class KafkaProducerConfig {
         return new DefaultKafkaProducerFactory<>(props);
     }
 
-    @Bean
+    @Bean(name = "taskNotificationProducer")
     public KafkaTemplate<Long, TaskNotificationDto> kafkaTemplate(ProducerFactory<Long, TaskNotificationDto> producerFactory) {
         return new KafkaTemplate<>(producerFactory);
     }

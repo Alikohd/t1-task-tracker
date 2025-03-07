@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class TaskNotificationDeserializer<T> extends JsonDeserializer<T> {
 
-    private static String getMessage(byte[] data) {
+    private String getMessage(byte[] data) {
         return new String(data, StandardCharsets.UTF_8);
     }
 
