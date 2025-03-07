@@ -1,9 +1,9 @@
 package com.example.t1tasktracker.controller;
 
 import com.example.t1tasktracker.aspect.annotation.LogReturning;
+import com.example.t1tasktracker.dto.ResponseTaskDto;
+import com.example.t1tasktracker.dto.TaskRequestDto;
 import com.example.t1tasktracker.service.TaskService;
-import dto.ResponseTaskDto;
-import dto.TaskRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;

@@ -1,8 +1,8 @@
 package com.example.t1tasktracker.mapper;
 
+import com.example.t1tasktracker.dto.ResponseTaskDto;
+import com.example.t1tasktracker.dto.TaskRequestDto;
 import com.example.t1tasktracker.entity.Task;
-import dto.ResponseTaskDto;
-import dto.TaskRequestDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 
