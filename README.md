@@ -22,6 +22,17 @@ Consists of CRUD operations and LoggingAspect with Spring AOP:
 
 - Support for sending to multiple email addresses asynchronously
 
+## Task 3:
+
+- Create Spring Boot logging starter
+
+- Move LoggingAspect into log-starter
+
+- Support log level adjustment via application.yaml
+
+- Support for sending to multiple email addresses asynchronously
+
+
 ## Setup
 
 ```bash
@@ -30,4 +41,4 @@ docker compose up -d
 
 - Application available on the port 8081 
 - Postgres available on 5433 (for debugging)
-- Kafka available 0n 9092
+- Kafka available on 9092
