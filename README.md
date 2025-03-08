@@ -28,10 +28,7 @@ Consists of CRUD operations and LoggingAspect with Spring AOP:
 
 - Move LoggingAspect into log-starter
 
-- Support log level adjustment via application.yaml
-
-- Support for sending to multiple email addresses asynchronously
-
+- Support log level adjustment via log-starter in application.yaml
 
 ## Setup
 
