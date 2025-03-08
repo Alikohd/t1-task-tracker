@@ -26,6 +26,13 @@ logging:
     root: info
     com.example.t1tasktracker: debug
     ru.etu.t1logstarter: debug
+  starter:
+    common:
+      enable: true
+      level: debug
+    http:
+      enable: true
+      level: info
 
 app:
   kafka:
@@ -50,7 +57,3 @@ app:
 
 server:
   port: 9090
-
-log-starter:
-  enable: true
-  level: debug
