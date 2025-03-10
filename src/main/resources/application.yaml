@@ -25,6 +25,14 @@ logging:
   level:
     root: info
     com.example.t1tasktracker: debug
+    ru.etu.t1logstarter: debug
+  starter:
+    common:
+      enable: true
+      level: debug
+    http:
+      enable: true
+      level: info
 
 app:
   kafka:
@@ -46,3 +54,6 @@ app:
       toAddresses: ${NOTIFICATION_TO_EMAILS}
       subject-template: "[Notification] Status of task with id %d was updated"
       text-template: "Hello! Notify you that status of task with id %d has been updated to %s"
+
+server:
+  port: 9090
