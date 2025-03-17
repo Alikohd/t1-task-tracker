@@ -99,7 +99,7 @@ public class TaskControllerIT extends TestContainersConfig {
     }
 
     @Test
-    void getTaskById_ShouldThrowException_WhenTaskDoesNotExist() throws Exception {
+    void getTaskById_ShouldReturn404_WhenTaskDoesNotExist() throws Exception {
         Long nonExistentId = 100L;
 
         mockMvc.perform(get("/tasks/" + nonExistentId))
