@@ -30,6 +30,14 @@ Consists of CRUD operations and LoggingAspect with Spring AOP:
 
 - Support log level adjustment via log-starter in application.yaml
 
+## Task 4:
+
+- Add unit tests for TaskService and EmailNotificationService
+
+- Add integration test for TaskController
+
+- Using TestContainers to handle Kafka & Postgres
+
 ## Setup
 
 ```bash
