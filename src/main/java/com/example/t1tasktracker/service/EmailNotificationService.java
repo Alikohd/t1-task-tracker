@@ -1,6 +1,5 @@
 package com.example.t1tasktracker.service;
 
-import com.example.t1tasktracker.aspect.annotation.LogBefore;
 import com.example.t1tasktracker.configuration.properties.EmailNotificationProperties;
 import com.example.t1tasktracker.dto.TaskNotificationDto;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +9,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import ru.etu.t1logstarter.aspect.annotation.LogBefore;
 
 @Slf4j
 @Service
